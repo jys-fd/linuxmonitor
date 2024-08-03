@@ -24,9 +24,10 @@ cuteci --installer /tmp/install/qt/qt-opensource-linux-x64-5.12.9.run \
     --keep-tools
 
 QT5_PATH="/usr/local/qt5"
-# Hide qt5 version from end users
+# Hide qt5 version from end users，软链接
 ln -s ${MY_DEST_DIR}/${QT_VERSION_B}/gcc_64 "${QT5_PATH}"
 
+# 路径添加到配置文件中
 echo "${QT5_PATH}/lib" > /etc/ld.so.conf.d/qt.conf
 ldconfig
 

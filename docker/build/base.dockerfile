@@ -11,7 +11,7 @@ COPY apt/sources.list /etc/apt/
 
 RUN apt-get update  && apt-get upgrade -y  && \
     apt-get install -y \
-    htop \
+    htop \a'b
     apt-utils \
     curl \
     cmake \

@@ -25,6 +25,7 @@ target_link_libraries(monitor_proto
         gRPC::grpc
         gRPC::grpc++
 )
+# 头文件
 target_include_directories(monitor_proto PUBLIC
 ${PROTOBUF_INCLUDE_DIRS} 
 ${CMAKE_CURRENT_BINARY_DIR})
@@ -33,5 +34,6 @@ ${CMAKE_CURRENT_BINARY_DIR})
 # Compile protobuf and grpc files in mointor proto target to cpp
 #
 get_target_property(grpc_cpp_plugin_location gRPC::grpc_cpp_plugin LOCATION)
-protobuf_generate(TARGET monitor_proto LANGUAGE cpp)
+protobuf_generate(TARGET monitor_proto LANGUAGE cpp)   # .pb.h  .pb.cc
 protobuf_generate(TARGET monitor_proto LANGUAGE grpc GENERATE_EXTENSIONS .grpc.pb.h .grpc.pb.cc PLUGIN "protoc-gen-grpc=${grpc_cpp_plugin_location}")
+# .grpc.pb.h .grpc.pb.cc
